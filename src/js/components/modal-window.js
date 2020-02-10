@@ -202,20 +202,21 @@ ${this.message}</textarea
     const nameInput = this.querySelector('[name="name"]');
     const messageInput = this.querySelector('[name="message"]');
 
-    window.state.name = newName;
-    window.state.message = newMessage;
+    if (newName) {
+      window.state.name = newName;
+      window.state.message = newMessage;
 
-    nameInput.value = newName;
-    messageInput.value = newMessage;
+      nameInput.value = newName;
+      messageInput.value = newMessage;
 
-    history.pushState(
-      {},
-      newTitle,
-      `?name=${encodeURI(newName)}&message=${encodeURI(newMessage)}`
-    );
+      history.pushState(
+        {},
+        newTitle,
+        `?name=${encodeURI(newName)}&message=${encodeURI(newMessage)}`
+      );
 
-    document.title = newTitle;
-
+      document.title = newTitle;
+    }
     if (hideModal) {
       this.toggle('close');
     }

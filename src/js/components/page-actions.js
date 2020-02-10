@@ -61,17 +61,19 @@ class PageActions extends HTMLElement {
       window.state.modalVisibility = 'open';
     });
 
-    shareButton.addEventListener('click', async evt => {
-      try {
-        await navigator.share({
-          title: `Thanks for the reply, ${window.state.name}!`,
-          text: window.state.message,
-          url: `${window.location.protocol}//${window.location.host}/${window.location.pathname}${window.location.search}`
-        });
-      } catch (ex) {
-        console.error(ex);
-      }
-    });
+    if (shareButton) {
+      shareButton.addEventListener('click', async evt => {
+        try {
+          await navigator.share({
+            title: `Thanks for the reply, ${window.state.name}!`,
+            text: window.state.message,
+            url: `${window.location.protocol}//${window.location.host}/${window.location.pathname}${window.location.search}`
+          });
+        } catch (ex) {
+          console.error(ex);
+        }
+      });
+    }
   }
 }
 
