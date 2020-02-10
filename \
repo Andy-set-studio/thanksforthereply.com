@@ -1,0 +1,39 @@
+{% extends 'layouts/base.njk' %}
+{% set layoutStyles = [
+  'components/intro.css'
+] %}
+
+{% block content %}
+  <main id="main-content">
+    <article class="[ intro ] [ flow ] [ measure-short ]">
+      <h1 class="text-700 md:text-800 leading-tight">{{ title }}</h1>
+      <p>{{ summary }}</p>
+      <img class="intro__trophy" src="/images/trophy.svg" alt="A golden trophy with a wooden base. The trophy has a thumbsup icon and the base has the inscription 'you’re great'" draggable="false" loading="lazy" />
+      <page-actions></page-actions>
+    </article>
+
+    <div class="modal" data-state="open">
+      <div class="modal__window">
+        <button class="modal__close" hidden>
+          <span>Close</span>
+        </button>
+        <form class="flow" action="/" method="GET">
+          <div>
+            <label for="name">Reply Guy’s name</label>
+            <input type="text" autocorrect="off" id="name" name="name" /> 
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="5"></textarea>
+          </div>
+          <div>
+            <button class="bg-primary color-light border-primary text-500 font-base-heavy">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+{% block components %} 
+  <script type="module" src="/js/components/page-actions.js"></script>
+{% endblock %}

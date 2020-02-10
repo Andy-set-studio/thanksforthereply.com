@@ -27,7 +27,7 @@
  */
 :root {
   --flow-space: 1em;
-  --metric-radius: 0.5rem;
+  --metric-radius: 0.4rem;
 }
 
 /**
@@ -93,6 +93,16 @@ button:active {
 
 button:hover:focus {
   outline: none;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  font: inherit;
+  padding: 0.4rem;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--metric-radius);
 }
 
 footer[role='contentinfo'] {

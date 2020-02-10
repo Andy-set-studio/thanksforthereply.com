@@ -1,6 +1,7 @@
 const colors = {
   'primary': '#006ba6',
   'primary-mid': '#004a73',
+  'primary-trans': 'rgba(0,30,47, 0.9)',
   'transparent': 'transparent',
   'light': '#efefef',
   'dark': '#252525'
@@ -40,6 +41,11 @@ module.exports = {
       items: colors,
       output: 'standard',
       property: 'color'
+    },
+    'space': {
+      items: sizeScale,
+      output: 'standard',
+      property: '--flow-space'
     },
     'font': {
       items: fonts,
