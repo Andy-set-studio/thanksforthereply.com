@@ -15,6 +15,10 @@ class PageActions extends HTMLElement {
       return;
     }
 
+    if (navigator.share) {
+      this.state.supportedActions.push('share');
+    }
+
     this.render();
     this.state.rendered = true;
   }
@@ -49,9 +53,24 @@ class PageActions extends HTMLElement {
   }
 
   postRender() {
-    this.querySelector('[data-element="customise"]').addEventListener('click', evt => {
+    const customiseButton = this.querySelector('[data-element="customise"]');
+    const shareButton = this.querySelector('[data-element="share"]');
+
+    customiseButton.addEventListener('click', evt => {
       evt.preventDefault();
       window.state.modalVisibility = 'open';
+    });
+
+    shareButton.addEventListener('click', async evt => {
+      try {
+        await navigator.share({
+          title: `Thanks for the reply, ${window.state.name}!`,
+          text: window.state.message,
+          url: `${window.location.protocol}//${window.location.host}/${window.location.pathname}${window.location.search}`
+        });
+      } catch (ex) {
+        console.error(ex);
+      }
     });
   }
 }
