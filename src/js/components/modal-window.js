@@ -1,3 +1,6 @@
+import getParam from '../helpers/get-param.js';
+import stripTags from '../helpers/strip-tags.js';
+
 const html = String.raw;
 
 // Store keycodes in readable format
@@ -118,6 +121,20 @@ ${this.message}</textarea
       )
     ];
     this.modalWindow = this.querySelector('[data-element="modal-window"]');
+
+    this.closeButton.addEventListener('click', evt => {
+      evt.preventDefault();
+      this.toggle('close');
+    });
+
+    this.form.addEventListener('submit', evt => {
+      evt.preventDefault();
+
+      const data = new FormData(evt.target);
+      this.setGlobalState(data.get('name'), data.get('message'), true);
+    });
+
+    this.setGlobalState();
   }
 
   toggleFocus(direction) {
@@ -172,6 +189,36 @@ ${this.message}</textarea
     }
 
     this.modalWindow.setAttribute('data-state', this.state.visibility);
+  }
+
+  setGlobalState(
+    name = getParam('name'),
+    message = getParam('message'),
+    hideModal = false
+  ) {
+    const newName = stripTags(name);
+    const newMessage = stripTags(message);
+    const newTitle = `Thanks for the reply, ${newName}!`;
+    const nameInput = this.querySelector('[name="name"]');
+    const messageInput = this.querySelector('[name="message"]');
+
+    window.state.name = newName;
+    window.state.message = newMessage;
+
+    nameInput.value = newName;
+    messageInput.value = newMessage;
+
+    history.pushState(
+      {},
+      newTitle,
+      `?name=${encodeURI(newName)}&message=${encodeURI(newMessage)}`
+    );
+
+    document.title = newTitle;
+
+    if (hideModal) {
+      this.toggle('close');
+    }
   }
 }
 
