@@ -94,3 +94,7 @@ button:active {
 button:hover:focus {
   outline: none;
 }
+
+footer[role='contentinfo'] {
+  text-align: center;
+}
