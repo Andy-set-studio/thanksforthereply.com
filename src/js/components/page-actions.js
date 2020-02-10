@@ -25,6 +25,7 @@ class PageActions extends HTMLElement {
         ? html`
             <button
               type="button"
+              data-element="customise"
               class="bg-primary color-light border-primary text-500 font-base-heavy"
             >
               Customise
@@ -35,6 +36,7 @@ class PageActions extends HTMLElement {
         ? html`
             <button
               type="button"
+              data-element="share"
               class="bg-transparent color-primary text-500 font-base-heavy"
             >
               Share
@@ -42,6 +44,15 @@ class PageActions extends HTMLElement {
           `
         : ''}
     `;
+
+    this.postRender();
+  }
+
+  postRender() {
+    this.querySelector('[data-element="customise"]').addEventListener('click', evt => {
+      evt.preventDefault();
+      window.state.modalVisibility = 'open';
+    });
   }
 }
 

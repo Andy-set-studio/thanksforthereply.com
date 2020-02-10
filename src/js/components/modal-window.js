@@ -48,6 +48,11 @@ class ModalWindow extends HTMLElement {
           break;
       }
     });
+
+    window.subscribers.push(state => {
+      this.state.visibility = state.modalVisibility;
+      this.toggle(this.state.visibility);
+    });
   }
 
   render() {
@@ -107,9 +112,11 @@ ${this.message}</textarea
   postRender() {
     this.closeButton = this.querySelector('[data-element="close"]');
     this.form = this.querySelector('[data-element="form"]');
-    this.focusableElements = this.querySelectorAll(
-      'button:not([disabled]), [href]:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)'
-    );
+    this.focusableElements = [
+      ...this.querySelectorAll(
+        'button:not([disabled]), [href]:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)'
+      )
+    ];
     this.modalWindow = this.querySelector('[data-element="modal-window"]');
   }
 
@@ -150,6 +157,16 @@ ${this.message}</textarea
   toggle(state = 'open') {
     if (state === 'open') {
       this.state.visibility = 'open';
+      setTimeout(() => {
+        const firstInput = this.focusableElements.find(x => x.hasAttribute('name'));
+
+        if (firstInput) {
+          firstInput.focus();
+          this.state.focusIndex = this.focusableElements.findIndex(x =>
+            x.hasAttribute('name')
+          );
+        }
+      }, 500);
     } else {
       this.state.visibility = 'closed';
     }

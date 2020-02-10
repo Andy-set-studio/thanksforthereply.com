@@ -17,7 +17,7 @@
 .modal[data-state='open'] {
   opacity: 1;
   visibility: visible;
-  pointer-events: normal;
+  pointer-events: auto;
   transition: opacity 300ms ease-in-out;
 }
 
