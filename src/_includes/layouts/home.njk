@@ -1,5 +1,12 @@
 {% extends 'layouts/base.njk' %}
 
 {% block content %}
-Hi
+  <main id="main-content">
+    <article>
+      <h1 class="heading">{{ title }}</h1>
+      <p class="lede">{{ summary }}</p>
+      <img src="/images/trophy.svg" alt="A golden trophy with a wooden base. The trophy has a thumbsup icon and the base has the inscription 'you’re great'" draggable="false" />
+      <page-actions></page-actions>
+    </article>
+  </main>
 {% endblock %}
