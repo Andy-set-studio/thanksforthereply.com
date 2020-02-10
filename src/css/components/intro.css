@@ -3,3 +3,10 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.intro__trophy {
+  width: 18rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
