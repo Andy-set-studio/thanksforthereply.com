@@ -31,6 +31,11 @@ module.exports = {
       output: 'standard',
       property: 'background'
     },
+    'border': {
+      items: colors,
+      output: 'standard',
+      property: 'border-color'
+    },
     'color': {
       items: colors,
       output: 'standard',

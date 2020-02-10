@@ -27,6 +27,7 @@
  */
 :root {
   --flow-space: 1em;
+  --metric-radius: 0.5rem;
 }
 
 /**
@@ -45,4 +46,51 @@ h2,
 h3 {
   font-family: var(--font-serif);
   font-weight: normal;
+}
+
+a:not([class]) {
+  color: currentColor;
+}
+
+a:not([class]):hover {
+  text-decoration: none;
+}
+
+:focus {
+  outline: 1px dotted var(--color-dark);
+  outline-offset: 0.25rem;
+}
+
+page-actions {
+  --flow-space: var(--size-700);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+page-actions > * + * {
+  margin-inline-start: var(--size-400);
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: normal;
+  border-radius: var(--metric-radius);
+  border: 0.25rem solid;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--color-primary-mid);
+  color: var(--color-light);
+  border-color: var(--color-primary);
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+button:hover:focus {
+  outline: none;
 }
