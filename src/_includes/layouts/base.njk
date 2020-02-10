@@ -1,0 +1,35 @@
+{% set coreStyles = [
+  '/reset.css',
+  '/global.css'
+]%}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ title }}</title>
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <style>{{ helpers.getCSS(coreStyles, layoutStyles) | safe }}</style>
+  {% block head %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebSite",
+      "name": "{{ site.name }}",
+      "url": "{{ site.url }}",
+      "image": {
+        "@type": "imageObject",
+        "url": "{{ site.url }}/images/social-image.png",
+        "width": "2048",
+        "height": "1024"
+      }
+    }
+  </script>
+  {% endblock %}
+</head>
+<body>
+  {% block content %}
+  {% endblock content %}
+</body>
+</html>

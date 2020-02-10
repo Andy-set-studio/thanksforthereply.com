@@ -1,0 +1,34 @@
+{
+  "name": "thanksforthereply.com",
+  "version": "1.0.0",
+  "description": "A fun little web app to thank reply guys",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run css && npm run serve",
+    "css:move": "cp -r src/css src/_data/tmp && touch src/_includes/layouts/base.njk",
+    "css:watch": "watch 'npm run css:move' src/css --interval=1",
+    "css": "goron -out src/_data/tmp/css/tokens.css && npm run css:move",
+    "serve": "concurrently 'ELEVENTY_ENV=development npx eleventy --serve' 'npm run css:watch'",
+    "production": "npm run css && NODE_ENV=production npx eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hankchizljaw/thanksforthereply.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hankchizljaw/thanksforthereply.com/issues"
+  },
+  "homepage": "https://github.com/hankchizljaw/thanksforthereply.com#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "goron": "^0.1.1",
+    "uglifycss": "0.0.29"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "watch": "^1.0.2"
+  }
+}

@@ -1,0 +1,20 @@
+*.log
+npm-debug.*
+*.scssc
+*.log
+*.swp
+.DS_Store
+.sass-cache
+node_modules
+dist 
+
+# Specifics
+
+# Hide output data tmp 
+src/_data/tmp
+
+# Hide compiled CSS
+src/_includes/assets/*
+
+# Local Netlify folder
+.netlify
