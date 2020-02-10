@@ -1,14 +1,7 @@
 {
-  "name": "Piccalilli",
-  "shortDesc": "Dang Spicy Tutorials",
-  "url": "https://piccalil.li",
-  "authorEmail": "hi@piccalil.li",
-  "authorHandle": "@piccalilli_",
-  "authorName": "Piccalilli",
-  "companyInfo": "Andy Bell Design Ltd, trading as “Piccalilli”, registered in England and Wales with company number 11703292",
-  "maxPostsPerPage": 5,
-  "defaultAuthor": {
-    "name": "Andy Bell",
-    "url": "https://twitter.com/hankchizljaw"
-  }
+  "name": "Thanks for the reply, Guy",
+  "shortDesc": "Reply-guys in your mentions? How about you give them a sarcastic pat on the back with a trophy?",
+  "url": "https://thanksforthereply.com/",
+  "authorHandle": "@hankchizljaw",
+  "authorName": "Andy Bell"
 }
