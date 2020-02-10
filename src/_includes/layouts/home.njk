@@ -1,10 +1,13 @@
 {% extends 'layouts/base.njk' %}
+{% set layoutStyles = [
+  'components/intro.css'
+] %}
 
 {% block content %}
   <main id="main-content">
-    <article>
-      <h1 class="heading">{{ title }}</h1>
-      <p class="lede">{{ summary }}</p>
+    <article class="[ intro ] [ flow ] [ measure-short ]">
+      <h1 class="text-700 md:text-800 leading-tight">{{ title }}</h1>
+      <p>{{ summary }}</p>
       <img src="/images/trophy.svg" alt="A golden trophy with a wooden base. The trophy has a thumbsup icon and the base has the inscription 'you’re great'" draggable="false" />
       <page-actions></page-actions>
     </article>

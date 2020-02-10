@@ -1,0 +1,48 @@
+/**
+ * FONT FACE 
+ */
+@font-face {
+  font-family: 'latoblack';
+  src: url('/fonts/lato-black-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'latoregular';
+  src: url('/fonts/lato-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'calistogaregular';
+  src: url('/fonts/calistoga-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
+ * CUSTOM PROPERTIES 
+ */
+:root {
+  --flow-space: 1em;
+}
+
+/**
+ * GLOBAL 
+ */
+
+body {
+  background: var(--color-light);
+  color: var(--color-dark);
+  padding: var(--size-700) var(--size-500);
+  font-family: var(--font-base);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: normal;
+}

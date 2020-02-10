@@ -1,0 +1,5 @@
+.intro {
+  --flow-space: var(--size-600);
+  margin: 0 auto;
+  text-align: center;
+}

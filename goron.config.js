@@ -1,22 +1,23 @@
 const colors = {
-  primary: '#ff00ff',
-  light: '#ffffff',
-  dark: '#252525'
+  'primary': '#006ba6',
+  'primary-mid': '#004a73',
+  'transparent': 'transparent',
+  'light': '#efefef',
+  'dark': '#252525'
 };
 
 const fonts = {
-  base: 'Helvetica, sans-serif',
-  serif: 'Georgia, serif'
+  'base': '"latoregular", Helvetica, sans-serif',
+  'base-heavy': '"latoblack", Helvetica, sans-serif',
+  'serif': '"calistogaregular", Times New Roman, serif'
 };
 
 const sizeScale = {
-  '300': '0.8rem',
   '400': '1rem',
-  '500': '1.25rem',
-  '600': '1.56rem',
-  '700': '1.95rem',
-  '800': '2.44rem',
-  '900': '3.05rem'
+  '500': '1.35rem',
+  '600': '1.8rem',
+  '700': '3.2rem',
+  '800': '4.2rem'
 };
 
 module.exports = {
@@ -52,18 +53,15 @@ module.exports = {
     },
     'leading': {
       items: {
-        tight: '1.2',
-        mid: '1.5',
-        loose: '1.7'
+        tight: '1.1',
+        mid: '1.5'
       },
       output: 'standard',
       property: 'line-height'
     },
     'measure': {
       items: {
-        long: '75ch',
-        short: '60ch',
-        compact: '40ch'
+        short: '50ch'
       },
       output: 'standard',
       property: 'max-width'
@@ -87,20 +85,9 @@ module.exports = {
       items: sizeScale,
       output: 'responsive',
       property: 'font-size'
-    },
-    'weight': {
-      items: {
-        light: '300',
-        regular: '400',
-        mid: '600',
-        bold: '700'
-      },
-      output: 'standard',
-      property: 'font-weight'
     }
   },
   breakpoints: {
-    md: '48em',
-    lg: '68em'
+    md: '48em'
   }
 };
