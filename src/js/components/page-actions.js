@@ -16,6 +16,7 @@ class PageActions extends HTMLElement {
     }
 
     this.render();
+    this.state.rendered = true;
   }
 
   render() {

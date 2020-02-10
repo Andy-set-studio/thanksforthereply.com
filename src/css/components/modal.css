@@ -9,6 +9,16 @@
   z-index: 99;
   display: grid;
   place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal[data-state='open'] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: normal;
+  transition: opacity 300ms ease-in-out;
 }
 
 .modal__window {
@@ -19,8 +29,13 @@
   background: var(--color-light);
   padding: var(--size-500);
   border-radius: var(--metric-radius);
+  transform: translateY(1rem);
 }
 
+.modal[data-state='open'] .modal__window {
+  transform: translateY(0);
+  transition: transform 200ms linear;
+}
 .modal__close {
   border: none;
   display: inline-flex;

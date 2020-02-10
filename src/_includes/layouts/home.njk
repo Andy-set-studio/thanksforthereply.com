@@ -12,30 +12,10 @@
       <img class="intro__trophy" src="/images/trophy.svg" alt="A golden trophy with a wooden base. The trophy has a thumbsup icon and the base has the inscription 'you’re great'" draggable="false" loading="lazy" />
       <page-actions></page-actions>
     </article>
-
-    <div class="modal" data-state="open">
-      <div class="modal__window">
-        <button type="button" class="modal__close">
-          <svg width="1em" height="1em" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 28"><path d="M3.72792206 1.27207794c.78104823-.78104823 2.04737854-.78104859 2.82842713 0l7.0703607 7.0703607 7.07177492-7.0703607c.78104823-.78104823 2.04737854-.78104859 2.82842713 0l2.82842712 2.82842712c.78104859.78104859.78104823 2.0473789 0 2.82842713L19.28285704 14l7.07248202 7.07106781c.78104859.78104859.78104823 2.0473789 0 2.82842713l-2.82842712 2.82842712c-.78104894.78104894-2.04737854.78104859-2.82842713 0l-7.07248202-7.07106781-7.0696536 7.07106781c-.78104894.78104894-2.04737854.78104859-2.82842713 0L.89949494 23.89949494c-.78104859-.78104859-.78104894-2.0473782 0-2.82842713l7.0703607-7.07177492-7.0703607-7.0703607c-.78104859-.78104859-.78104894-2.04737819 0-2.82842713l2.82842712-2.82842712z" fill="currentColor" fill-rule="evenodd"/></svg>
-          <span>Close</span>
-        </button>
-        <form class="flow" action="/" method="GET">
-          <div>
-            <label class="font-serif text-500" for="name">Reply Guy’s name</label>
-            <input type="text" autocorrect="off" id="name" name="name" required value="{{ defaultName }}" /> 
-          </div>
-          <div>
-            <label class="font-serif text-500" for="message">Message</label>
-            <textarea name="message" id="message" rows="5" required>{{ summary }}</textarea>
-          </div>
-          <div class="space-700">
-            <button class="bg-primary color-light border-primary text-500 font-base-heavy">Update</button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <modal-window name="{{ defaultName }}" message="{{ summary }}"></modal-window>
   </main>
 {% endblock %}
 {% block components %} 
+  <script type="module" src="/js/components/modal-window.js"></script>
   <script type="module" src="/js/components/page-actions.js"></script>
 {% endblock %}
