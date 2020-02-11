@@ -67,7 +67,7 @@ class PageActions extends HTMLElement {
           await navigator.share({
             title: `Thanks for the reply, ${window.state.name}!`,
             text: window.state.message,
-            url: `${window.location.protocol}//${window.location.host}/${window.location.pathname}${window.location.search}`
+            url: `${window.location.protocol}//${window.location.host}${window.location.pathname ? '/' + window.location.pathname : ''}${window.location.search}`
           });
         } catch (ex) {
           console.error(ex);
